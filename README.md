@@ -86,12 +86,12 @@ A logarithm is an inverse of an exponent.
     
   Big O vs Algorithms:
 
-  | No.   |Big O       | Algorithms           |
-  |-------|------------|----------------------|
-  |1.     |O(1)        |                      | 
-  |2.     |O(logn)     | binary search                      |
-  |3.     |O(n)        |min, max              |        
-  |4.     |O(nlogn)    |                      |
-  |5.     |O(n^2)      |nested loop           |
-  |6.     |O(2^n)      |                      |
-  |7.     |O(n!)       |                      |
+  | No.   |Big O       | Algorithms                        |
+  |-------|------------|-----------------------------------|
+  |1.     |O(1)        |                                   | 
+  |2.     |O(logn)     | binary search                     |
+  |3.     |O(n)        |min, max                           |        
+  |4.     |O(nlogn)    |                                   |
+  |5.     |O(n^2)      |nested loop, Bubble sort           |
+  |6.     |O(2^n)      |                                   |
+  |7.     |O(n!)       |                                   |
