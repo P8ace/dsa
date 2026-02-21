@@ -1,6 +1,12 @@
 """
 Bubble sort repeatedly steps through a slice and compares adjacent elements, swapping them if they are out of order.
 It continues to loop over the slice until the whole list is completely sorted.
+
+So what is the time complexity of Bubble sort?   O(n2) look for the worst scenario.
+1. Best Case:   if the list is pre-sorted the bubble sort will be really fast. O(n)
+2. Worst Case:  if the list is in reverse order, bubble sort can become really slow. O(n2)
+Bubble sort is one of the slowest algorithmsn.
+
 Hint: The first for loop stores the highest element at the end of list. So for the next iteration, then length is decremented by 1.
 PseudoCode:
     Set swapping to True
@@ -27,10 +33,3 @@ def bubble_sort(nums):
                 swapping = True
         end -= 1
     return nums
-
-
-"""
-So what is the time complexity of Bubble sort?   O(n2) look for the worst scenario.
-1. Best Case:   if the list is pre-sorted the bubble sort will be really fast
-2. Worst Case:  if the list is in reverse order, bubble sort can become really slow.
-"""
