@@ -34,3 +34,5 @@ go.work.sum
 py/src/__pycache__/*
 py/src/intro/__pycache__/*
 *.pyc
+.venv
+.pytest_cache
