@@ -91,11 +91,13 @@ A logarithm is an inverse of an exponent.
   |1.     |O(1)        |                                   | 
   |2.     |O(logn)     | binary search                     |
   |3.     |O(n)        |min, max                           |        
-  |4.     |O(nlogn)    |Merge sort                         |
+  |4.     |O(nlogn)    |Merge sort, Quick sort,                          |
   |5.     |O(n^2)      |nested loop, Bubble sort, Insertion sort           |
   |6.     |O(2^n)      |                                   |
   |7.     |O(n!)       |                                   |
 
-Merge sort: Takes Divide and conquer approach. Makes copies . Uses recursion. Affects memory.
+Merge sort: Takes Divide and conquer approach. Makes copies . Uses recursion. Affects memory due to copies of split arrays.
 Insertion sort: Fast for small inputs
-Quick sort: Suited for larger inputs
+Quick sort: Suited for larger inputs, Recursive and Divide & conquer algorithm. Doesn't make copies, sorts the elements in place.
+            Bad if the list is pre-sorted and can fall to O(n^2). Can be minimized by randomizing the pivot point.
+            Use the median of three approach to ensure O(mlogn). Pick the first, last and a middle index to find the median.
