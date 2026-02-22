@@ -34,7 +34,7 @@ go.work.sum
 py/src/__pycache__/*
 py/src/intro/__pycache__/*
 py/src/sorting/__pycache__/*
-py/src/t_polynomial_algorithm/__pycache__/*
+py/src/t_polynomial_algorithms/__pycache__/*
 py/src/*/__pycache__/*
 *.pyc
 .venv
