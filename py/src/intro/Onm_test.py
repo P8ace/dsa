@@ -1,6 +1,6 @@
 import random
 
-from intro.Onm import get_avg_brand_followers
+from src.intro.Onm import get_avg_brand_followers
 
 run_cases = [
     (10, 1000, "luxa", 383.9),

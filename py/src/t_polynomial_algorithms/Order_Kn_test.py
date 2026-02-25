@@ -1,4 +1,4 @@
-from t_polynomial_algorithms.Order_Kn import letter_combinations
+from src.t_polynomial_algorithms.Order_Kn import letter_combinations
 
 run_cases = [
     ("", 0, [], ""),

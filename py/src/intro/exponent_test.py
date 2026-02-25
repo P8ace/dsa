@@ -1,4 +1,4 @@
-from intro.exponent import exponent
+from src.intro.exponent import exponent
 
 run_cases = [
     ([7, 4, 3, 100, 765, 2344, 1, 2, 32], 5056),

@@ -1,4 +1,4 @@
-from sorting.F_Selectionsort import selection_sort
+from src.sorting.F_Selectionsort import selection_sort
 
 run_cases = [
     ([5, 3, 8, 6, 1, 9], [1, 3, 5, 6, 8, 9]),

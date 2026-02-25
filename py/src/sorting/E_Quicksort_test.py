@@ -1,6 +1,6 @@
 import time
 
-from sorting.E_Quicksort import quick_sort
+from src.sorting.E_Quicksort import quick_sort
 
 # from E_Quicksort import quick_sort
 

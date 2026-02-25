@@ -1,6 +1,6 @@
 import random
 
-from data_structures.Linkedlist import LinkedList, Node, LLQueue
+from src.data_structures.Linkedlist import LinkedList, LLQueue, Node
 
 
 def test_Linkedlist():
@@ -113,7 +113,8 @@ def test_Linkedlist_iterator():
     for test_case in submit_cases:
         node = Node(test_case[0])
         last_node = get_last_node(linked_list)
-        last_node.set_next(node)
+        if last_node is not None:
+            last_node.set_next(node)
         try:
             result = linked_list_to_list(linked_list)
         except Exception as e:
@@ -313,6 +314,7 @@ def test_add_to_tail_and_head_O1():
         cleanup_list(linked_list)
         cleanup_list(linked_list2)
 
+
 def test_remove_from_head():
     run_cases = [
         (
@@ -324,33 +326,35 @@ def test_remove_from_head():
             (["Sharon", "Jay", "Roman", "Squeaky"], "Cliff", "Squeaky"),
         ),
     ]
-    
+
     submit_cases = run_cases + [
         ([], ([],)),
         (["Jay"], ([], "Jay")),
         (["Roman", "Squeaky"], (["Squeaky"], "Roman", "Squeaky")),
         (["Squeaky"], ([], "Squeaky")),
     ]
-    
+
     def linked_list_to_list(linked_list):
         result = []
         for node in linked_list:
             result.append(node.val)
-    
+
         return result
-    
+
     for test_case in submit_cases:
         linked_list = LLQueue()
         for item in test_case[0]:
-           linked_list.add_to_tail_O1(Node(item)) 
-           
-        try: 
+            linked_list.add_to_tail_O1(Node(item))
+
+        try:
             head = linked_list.remove_from_head_O1()
             tail = linked_list.tail
             result = linked_list_to_list(linked_list)
-            assert result == test_case[1][0]
-            assert head.val == test_case[1][1]
-            assert tail == test_case[1][2]
-            assert head.next == None
+            expected = test_case[1]
+            assert result == expected[0]
+            if head is not None:
+                assert head.val == expected[1]
+                assert head.next is None
+            assert tail == expected[2]
         except Exception as e:
             print(f"Exception: {str(e)}")

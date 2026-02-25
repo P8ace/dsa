@@ -1,4 +1,4 @@
-from t_polynomial_algorithms.exponential_growth import exponential_growth
+from src.t_polynomial_algorithms.exponential_growth import exponential_growth
 
 run_cases = [
     (10, 2, 4, [10, 20, 40, 80, 160]),

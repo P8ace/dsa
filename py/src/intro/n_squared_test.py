@@ -1,4 +1,4 @@
-from intro.n_squared import squared
+from src.intro.n_squared import squared
 
 run_cases = [
     (100, 100, "bob0 gonzalez0", True),

@@ -51,7 +51,8 @@ class LinkedList:
         last_node = None
         for current_node in self:
             last_node = current_node
-        last_node.set_next(node)
+        if last_node is not None:
+            last_node.set_next(node)
 
     def add_to_head(self, node):
         if self.head is None:
@@ -69,7 +70,8 @@ class LinkedList:
             self.head = node
             self.tail = node
             return 
-        self.tail.set_next(node)
+        if self.tail is not None:
+            self.tail.set_next(node)
         self.tail = node
         
     def add_to_head_O1(self,node):
@@ -116,7 +118,8 @@ class LLQueue:
         last_node = None
         for current_node in self:
             last_node = current_node
-        last_node.set_next(node)
+        if last_node is not None:
+            last_node.set_next(node)
         
     def add_to_tail_O1(self, node):
         '''
@@ -126,7 +129,8 @@ class LLQueue:
             self.head = node
             self.tail = node
             return 
-        self.tail.set_next(node) # set the last node's next to the given node
+        if self.tail is not None:
+            self.tail.set_next(node) # set the last node's next to the given node
         self.tail = node        # sest the tail field of the llqueue to the given node
 
     def remove_from_head_O1(self):

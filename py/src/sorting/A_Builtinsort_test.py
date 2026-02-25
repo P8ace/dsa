@@ -1,4 +1,4 @@
-from sorting.A_Builtinsort import Influencer, vanity_sort
+from src.sorting.A_Builtinsort import Influencer, vanity_sort
 
 theprimeagen = Influencer(100, 1)
 pokimane = Influencer(800, 2)

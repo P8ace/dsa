@@ -1,4 +1,4 @@
-from intro.geometric import geometric
+from src.intro.geometric import geometric
 
 TestCase = tuple[int, str, int, int]
 

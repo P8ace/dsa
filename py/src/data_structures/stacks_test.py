@@ -1,4 +1,4 @@
-from data_structures.stacks import Stack
+from src.data_structures.stacks import Stack
 
 def test_Stack_Size():
     submit_cases = [

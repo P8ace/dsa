@@ -1,4 +1,4 @@
-from t_polynomial_algorithms.reduction_to_polynomial import fib
+from src.t_polynomial_algorithms.reduction_to_polynomial import fib
 
 run_cases = [
     (1, 1),

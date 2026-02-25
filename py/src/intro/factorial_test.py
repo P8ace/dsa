@@ -1,4 +1,4 @@
-from intro.factorial import factorial
+from src.intro.factorial import factorial
 
 run_cases = [(2, 2), (3, 6), (5, 120)]
 

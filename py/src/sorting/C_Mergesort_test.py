@@ -1,4 +1,4 @@
-from sorting.C_Mergesort import merge_sort
+from src.sorting.C_Mergesort import merge_sort
 
 submit_cases =[
     ([3, 2, 1], [1, 2, 3]), 

@@ -1,4 +1,4 @@
-from data_structures.Queue import Queue
+from src.data_structures.Queue import Queue
 
 
 def test_Queue():

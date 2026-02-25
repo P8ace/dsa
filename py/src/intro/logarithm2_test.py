@@ -1,4 +1,4 @@
-from intro.logarithm2 import log_scale
+from src.intro.logarithm2 import log_scale
 
 run_cases = [
     ([1, 10, 100, 1000], 10, [0.0, 1.0, 2.0, 3.0]),

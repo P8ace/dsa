@@ -1,4 +1,4 @@
-from intro.find_max import max
+from src.intro.find_max import max
 
 run_cases = [([7, 4, 3, 100, 2343243, 343434, 1, 2, 32], 2343243), ([12, 12, 12], 12)]
 

@@ -1,4 +1,4 @@
-from intro.minimum import find_minimum
+from src.intro.minimum import find_minimum
 
 run_cases = [
     ([7, 4, 3, 100, 2343243, 343434, 1, 2, 32], 1),

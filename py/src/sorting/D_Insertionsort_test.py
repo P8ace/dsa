@@ -1,4 +1,4 @@
-from sorting.D_Insertionsort import insertion_sort
+from src.sorting.D_Insertionsort import insertion_sort
 
 run_cases = [([4, 3, 2, 1], [1, 2, 3, 4]), ([9, 5, -3, 7], [-3, 5, 7, 9])]
 

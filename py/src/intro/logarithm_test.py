@@ -1,4 +1,4 @@
-from intro.logarithm import log
+from src.intro.logarithm import log
 
 run_cases = [(40000, 0.3, 5), (43000, 0.1, 2), (100000, 0.6, 10)]
 

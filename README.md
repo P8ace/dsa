@@ -89,7 +89,7 @@ A logarithm is an inverse of an exponent.
   | No.   |Big O       | Algorithms                        |
   |-------|------------|-----------------------------------|
   |1.     |O(1)        |                                   | 
-  |2.     |O(logn)     | binary search                     |
+  |2.     |O(logn)     | binary search tree                |
   |3.     |O(n)        |min, max                           |        
   |4.     |O(nlogn)    |Merge sort, Quick sort,                          |
   |5.     |O(n^2)      |nested loop, Bubble sort, Insertion sort           |

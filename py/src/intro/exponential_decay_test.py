@@ -1,4 +1,4 @@
-from intro.exponential_decay import exponential_decay
+from src.intro.exponential_decay import exponential_decay
 
 run_cases = [
     (200, 0.5, 1, 100),

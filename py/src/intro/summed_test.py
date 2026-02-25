@@ -1,4 +1,4 @@
-from intro.summed import summed
+from src.intro.summed import summed
 
 run_cases = [([7, 4, 3, 100, 2343243, 343434, 1, 2, 32], 2686826), ([12, 12, 12], 36)]
 

@@ -1,4 +1,4 @@
-from data_structures.lists import count_marketers, last_work_experience
+from src.data_structures.lists import count_marketers, last_work_experience
 
 def test_count_marketers():
     run_cases = [

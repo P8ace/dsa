@@ -1,4 +1,4 @@
-from intro.binary_search import binary_search
+from src.intro.binary_search import binary_search
 
 run_cases = [
     (10, [i for i in range(12)], True),
