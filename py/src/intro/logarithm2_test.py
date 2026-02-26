@@ -19,6 +19,6 @@ def test_log_scale():
     for test_case in submit_cases:
         expected_output = test_case[2]
         result = log_scale(test_case[0], test_case[1])
-    for i in range(0, len(result)):
-            result[i] = round(result[i], 2)
-    assert result == expected_output
+        for i in range(0, len(result)):
+                result[i] = round(result[i], 2)
+        assert result == expected_output

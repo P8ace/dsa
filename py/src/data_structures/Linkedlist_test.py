@@ -328,10 +328,10 @@ def test_remove_from_head():
     ]
 
     submit_cases = run_cases + [
-        ([], ([],)),
-        (["Jay"], ([], "Jay")),
+        ([], ([],None, None)),
+        (["Jay"], ([], "Jay",None)),
         (["Roman", "Squeaky"], (["Squeaky"], "Roman", "Squeaky")),
-        (["Squeaky"], ([], "Squeaky")),
+        (["Squeaky"], ([], "Squeaky",None)),
     ]
 
     def linked_list_to_list(linked_list):
