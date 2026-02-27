@@ -101,3 +101,5 @@ A logarithm is an inverse of an exponent.
     - Quick sort: Suited for larger inputs, Recursive and Divide & conquer algorithm. Doesn't make copies, sorts the elements in place.
                 Bad if the list is pre-sorted and can fall to O(n^2). Can be minimized by randomizing the pivot point.
                 Use the median of three approach to ensure O(mlogn). Pick the first, last and a middle index to find the median.
+    - Trie: Used for implementing auto-complete
+            Have a time complexity of O(m) where m is the length of the prefix.
