@@ -110,9 +110,13 @@ Polynomial Time:
 Exponential Time:
   O(2^n), O(3^n)
   
-Non deterministic Polynomial Time:
-  Problems whose solutions can be verified in polynomial Time.
-  TSP
+NP - Non deterministic Polynomial Time:   Problems whose solutions can be verified in polynomial Time. (TSP)
+NP complete - If a problem is NP and every other problem in NP can be reduced into it in polynomial time
+NP Hard - If every problem in NP can be reduced into it in polynomial time.
+
+All NP complete problems are NP-Hard, but not all NP-Hard problems are NP-complete.
+  
+  
   
 
 
