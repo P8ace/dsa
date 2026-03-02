@@ -94,7 +94,7 @@ A logarithm is an inverse of an exponent.
   |4.     |O(nlogn)    |Merge sort, Quick sort,                          |
   |5.     |O(n^2)      |nested loop, Bubble sort, Insertion sort           |
   |6.     |O(2^n)      |                                   |
-  |7.     |O(n!)       |                                   |
+  |7.     |O(n!)       |Nonpolynomial Travelling salesman    |
 
     - Merge sort: Takes Divide and conquer approach. Makes copies . Uses recursion. Affects memory due to copies of split arrays.
     - Insertion sort: Fast for small inputs
@@ -103,3 +103,19 @@ A logarithm is an inverse of an exponent.
                 Use the median of three approach to ensure O(mlogn). Pick the first, last and a middle index to find the median.
     - Trie: Used for implementing auto-complete
             Have a time complexity of O(m) where m is the length of the prefix.
+            
+Polynomial Time:
+  O(1), O(logn), O(n), O(nlogn), O(n^2), O(n^3)
+  
+Exponential Time:
+  O(2^n), O(3^n)
+  
+Non deterministic Polynomial Time:
+  Problems whose solutions can be verified in polynomial Time.
+  TSP
+  
+
+
+Patterns:
+  Two pointers
+  Backtracking
