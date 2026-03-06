@@ -89,7 +89,7 @@ A logarithm is an inverse of an exponent.
   | No.   |Big O       | Algorithms                        |
   |-------|------------|-----------------------------------|
   |1.     |O(1)        |                                   | 
-  |2.     |O(logn)     | binary search tree                |
+  |2.     |O(logn)     |binary search tree                 |
   |3.     |O(n)        |min, max                           |        
   |4.     |O(nlogn)    |Merge sort, Quick sort,                          |
   |5.     |O(n^2)      |nested loop, Bubble sort, Insertion sort           |
@@ -123,3 +123,10 @@ All NP complete problems are NP-Hard, but not all NP-Hard problems are NP-comple
 Patterns:
   Two pointers
   Backtracking
+  
+  Array problems:
+  Use HashMaps for O(1) lookups but will cost O(n) space. For array problems.
+  
+  Group anagrams: Use hashmap 
+  topK frequent: Hashmap, bucket sort(frequency list)
+  product_except_self: Use prefix and postfix , pass through the array twice, each from opposite ends.
