@@ -177,6 +177,7 @@ Zero value of a map is nil
 ```
 
 - slices, maps and functions cannot be used as keys of a map as they are not comparable.
+- Maps are not thread safe. Use mutexes.
 
 ### Pointers
 
@@ -268,7 +269,7 @@ Like maps and slices, channels are too passed by reference.
 
 #### Closing channels
 
-Channels can explicitly closed by a sender.
+Channels can be explicitly closed by a sender.
 
 ```Go
 
@@ -289,3 +290,127 @@ But closing a channel can be used to indicate to a receiver that there is no mor
 
 #### Range over a channel
 Similar to slices and maps, channel can be ranged over.
+
+```Go
+	for data := range ch{
+		//do something
+	}
+```
+This will block at each iteration and will only break the loop once the channel is closed.
+
+#### Select
+
+```Go
+
+	select {
+	case i, ok := <-chInts:
+			if ok {
+				fmt.Println(i)
+			}
+	case s, ok := <-chStrings:
+			if ok {
+				fmt.Println(s)
+			}
+	}
+	
+// A default case in a select statement will execute if no channels have data to recieve
+// It stops the select statement from blocking
+
+	select {
+		case v := <- ch : 
+			// do something with v
+		default:
+			// do something else
+			
+	}
+````
+
+### Mutex
+Short for Mutual exclusion. Excludes from different thread/goroutines from accessing the same data at the same time.
+
+```Go
+	func protected() {
+		mu.Lock()
+		defer mu.Unlock()
+		//the rest of the function
+	}
+````
+
+RW Mutex
+
+    Read and Write Lock. It also has Lock and Unlock methods. In addition, it also has RLock and RUnlock. RLock and RUnlock methods allow for 
+    multiple readers to read the data at the same time, but any writers will have to wait for the lock to be unlocked.
+
+```Go
+	func protected() {
+		rw.RLock()
+		defer rw.RUnlock()
+	}
+```
+
+### Generics
+
+```Go
+	func splitslice[T any](s []T)([]T, []T){
+		mid = len(s)/2
+		return s[:mid], s[mid:]
+	}
+// any in the signature is a constraint. 
+
+// Using type lists/sets as constraints
+
+type Ordered interface{
+	~int8 | ~int16 | ~int32 | ~int64 
+}	
+
+func Min[T ordered](a, b T)(T){
+	if a < b {
+		return a
+	}
+	return b
+}
+
+	
+```
+
+### Go Proverbs
+
+    
+
+    Don't communicate by sharing memory, share memory by communicating.
+
+    Concurrency is not parallelism.
+
+    Channels orchestrate; mutexes serialize.
+
+    The bigger the interface, the weaker the abstraction.
+
+    Make the zero value useful.
+
+    interface{} says nothing.
+
+    Gofmt's style is no one's favorite, yet gofmt is everyone's favorite.
+
+    A little copying is better than a little dependency.
+
+    Syscall must always be guarded with build tags.
+
+    Cgo must always be guarded with build tags.
+
+    Cgo is not Go.
+
+    With the unsafe package there are no guarantees.
+
+    Clear is better than clever.
+
+    Reflection is never clear.
+
+    Errors are values.
+
+    Don't just check errors, handle them gracefully.
+
+    Design the architecture, name the components, document the details.
+
+    Documentation is for users.
+
+    Don't panic.
