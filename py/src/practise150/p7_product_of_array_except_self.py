@@ -1,7 +1,8 @@
 '''
     Given an integer array nums, return an array output where output[i] is the product of all the elements of nums except nums[i].
     Eg: 
-        input 
+        input       [1,2,3,4],
+        output      [24,12,8,6]
 '''
 
 class Solution:
