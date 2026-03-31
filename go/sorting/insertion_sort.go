@@ -1,6 +1,5 @@
 package sorting
 
-// '''
 // Use two indexes i and j to sort the list.
 // 1. For each index in the input list, starting with the second element:
 //     a. Set a j variable to the current index
@@ -15,15 +14,6 @@ package sorting
 // Best case is if the array is pre-sorted then O(n)
 
 // Best used for small inputs.
-// '''
-
-// def insertion_sort(nums):
-//     for i in range (1, len(nums)):
-//         j = i
-//         while j > 0 and nums[j-1] > nums[j]:
-//             nums[j-1], nums[j] = nums[j], nums[j-1]
-//             j -= 1
-//     return nums
 
 func InsertionSort(nums []int) {
 
