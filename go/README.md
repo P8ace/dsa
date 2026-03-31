@@ -363,7 +363,7 @@ type Ordered interface{
 	~int8 | ~int16 | ~int32 | ~int64 
 }	
 
-func Min[T ordered](a, b T)(T){
+func Min[T Ordered](a, b T)(T){
 	if a < b {
 		return a
 	}
