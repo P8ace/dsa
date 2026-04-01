@@ -360,6 +360,80 @@ Maps are associative data types, that associate keys with values.
 
 * * *
 
+### Control Flow
+
+```go
+
+// if else
+if a > b {
+	//do something
+} else if b > a {
+	// do something
+} else {
+	// default case. do something
+}
+
+// if expression
+if a := getResult; a == true {
+	// do something
+}
+
+// switch
+day := 4
+switch day {
+	case 0: 
+		fmt.Println("Sunday")
+	case 7:
+		fmt.Println("Saturday")
+	case 4:
+		fmt.Println("WeekDay")
+	default:
+		fmt.Println("invalid day")
+}
+
+// use "fallthrough" keyword to fall through to the next case in the switch statement.
+
+// switch expression
+    switch day := 4; day {
+    case 1:
+        fmt.Println("Monday")
+    case 2:
+        fmt.Println("Tuesday")
+    case 3:
+        fmt.Println("Wednesday")
+    case 4:
+        fmt.Println("Thursday")
+    case 5:
+        fmt.Println("Friday")
+    default:
+        fmt.Println("Invalid day")
+    }
+
+// optional switch
+switch {
+	case day == 0 || day == 7:
+		fmt.Println("Weekend")
+	case day == 1 || day == 2 || day == 3:
+		fmt.Println("Weekday")
+	case day == 4 || day == 5 || day == 6:
+		fmt.Println("Weekday")
+	default:
+		fmt.Println("Invalid day")
+}
+
+// type switch. Works on interface types to identify concrete types
+	var day interface{} = 4
+ 	switch day.(type) {
+ 	case int:
+		fmt.Println("Integer")
+	case string:
+		fmt.Println("String")
+	default:
+		fmt.Println("Invalid type")
+ }
+
+```
+
 ### Loops
 
 ```Go
