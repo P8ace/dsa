@@ -43,5 +43,11 @@ func TestLongestSubstring(t *testing.T) {
 				t.Errorf("Testing Longest Substring. Input: %s, Expected: %d. Actual: %d.", test_case.input, test_case.expected, actual)
 			}
 		})
+		t.Run(fmt.Sprintf("Test_Case_no:%d", idx+1), func(t *testing.T) {
+			actual := LongestSubstringWithTwoPointers(test_case.input)
+			if actual != test_case.expected {
+				t.Errorf("Testing Longest Substring. Input: %s, Expected: %d. Actual: %d.", test_case.input, test_case.expected, actual)
+			}
+		})
 	}
 }
