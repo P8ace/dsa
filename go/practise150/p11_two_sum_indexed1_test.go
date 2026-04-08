@@ -22,6 +22,11 @@ func TestTwoSumIndexed1(t *testing.T) {
 			target:   24,
 			expected: []int{2, 3},
 		},
+		{
+			input:    []int{-1, 1, 5, 5, 7},
+			target:   6,
+			expected: []int{2, 3},
+		},
 	}
 
 	for idx, test_case := range test_cases {

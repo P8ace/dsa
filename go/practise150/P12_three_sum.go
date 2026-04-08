@@ -10,7 +10,7 @@ import (
 
 // The output should not contain any duplicate triplets. You may return the output and the triplets in any order.
 
-func ThreeSum(nums []int) []int {
+func ThreeSum(nums []int) [][]int {
 	// nums[i] + nums[j] + nums[k] == 0
 	// nums[j] + nums[k] == -nums[i]
 
@@ -24,8 +24,15 @@ func ThreeSum(nums []int) []int {
 		}
 	})
 	fmt.Println("Sorted", nums)
+	result := [][]int{}
 	for i, _ := range nums {
-		j := 0
+		if nums[i] > 0 {
+			break
+		}
+		if i > 0 && nums[i] == nums[i-1] {
+			continue
+		}
+		j := i+1
 		k := len(nums) - 1
 		for j < k {
 			if i == j {
@@ -40,9 +47,14 @@ func ThreeSum(nums []int) []int {
 				k--
 			} else {
 				fmt.Println("i,j,k", i, j, k)
-				return []int{nums[i], nums[j], nums[k]}
+				result = append(result, []int{nums[i], nums[j], nums[k]})
+				j++
+				k--
+				for j < k && nums[j] == nums[j-1] {
+					j++
+				}
 			}
 		}
 	}
-	return nil
+	return result
 }
