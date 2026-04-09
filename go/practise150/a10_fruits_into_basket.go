@@ -10,6 +10,22 @@ package practise150
 
 // Given the integer array fruits, return the maximum number of fruits you can pick.
 
-// func FruitsIntoBasket(fruits []int) int{
-	
-// }
+func FruitsIntoBasket(fruits []int) int {
+	i, j := 0, 0
+
+	countMap := make(map[int]int)
+
+	for j < len(fruits) {
+		countMap[fruits[j]]++
+
+		if len(countMap) > 2 {
+			countMap[fruits[i]]--
+			if countMap[fruits[i]] == 0 {
+				delete(countMap, fruits[i])
+			}
+			i++
+		}
+		j++
+	}
+	return len(fruits) - i
+}
