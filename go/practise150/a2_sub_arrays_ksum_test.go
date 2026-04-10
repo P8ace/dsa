@@ -55,4 +55,12 @@ func TestNoofSubarrays(t *testing.T) {
 			}
 		})
 	}
+	for idx, test_case := range test_cases {
+		t.Run(fmt.Sprintf("2nd method test_case_no:%d", idx+1), func(t *testing.T) {
+			actual := NoofSubarraysofsumK(test_case.input, test_case.k)
+			if actual != test_case.expected {
+				t.Errorf("Testing no of sub array of sum K. Input: %v, K: %d, Expected: %d, Actual: %d.", test_case.input, test_case.k, test_case.expected, actual)
+			}
+		})
+	}
 }
