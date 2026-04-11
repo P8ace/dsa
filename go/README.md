@@ -27,11 +27,11 @@ Go supports constants of character, string, boolean and numeric values.
 package main
 
 // keyword const declares a constant value
-const value string = "Hello there!"
+const VALUE string = "Hello there!"
 
 func main() {
     // const can also be used inside a function
-    const myConst string = "Another Constant"
+    const MY_CONST string = "Another Constant"
 
     // const expression
     const d = 3e20/5000
@@ -47,14 +47,17 @@ func main() {
 package main
 
 func main() {
+	// variable declaration and intialization. 
+	var myvar string = "some string here"
+
     // type inference
     var a = "initial"
 
     // declaring multiple variables at once
     var b,c = 2, 3
 
-    // variables declared without initialized will be initialzed to their zero values. 
-    // For ints its 0, for strings "", for booleans false
+    // variables declared but not initialized will be initialzed to their zero values. 
+    // The zero value for integers is 0, for strings its "", for booleans its false.
     var d int
 
     // short hand syntax for declaration and initialization.
@@ -92,7 +95,7 @@ Rules for Naming Variables
 - Numeric:
     - uint, uint8, uint16, uint32, uint64
         
-    - uintptr (width undefined, can hold all bits of a pointer value)
+    - uintptr (width is undefined, but can hold all bits of a pointer value)
         
     - int, int8, int16, int32, int64
         
@@ -109,6 +112,7 @@ Rules for Naming Variables
 - bool
 
 ```go
+	// builtin functions for numeric types.
     max(a,b)
     min(a,b)
     
@@ -139,22 +143,22 @@ a % b
 &&, ||, !
 
 // Assignment Operators
-// =, +=, -=, *=, /=, %=, 
+=, +=, -=, *=, /=, %=, 
 
 // Bitwise Operators
-// & bitwise and
-// | bitwise or
-// ^ bitwise xor
-// << left shift
-// >> right shift
-// &^ bit clear operator
+& bitwise and
+| bitwise or
+^ bitwise xor
+<< left shift
+>> right shift
+&^ bit clear operator
 
 
 ```
 
 ### Value based Composite data types
 
-Arrays and structs combine other data types.
+Arrays and structs are composed of other data types.
 
 #### Arrays:
 
@@ -165,7 +169,7 @@ An array is a fixed length sequence of homogenous elements in memory. Elements i
     // by default all elements will be initialized to their zero val.
     var a [10]int
 
-    // declaring and initializing an array of 5 integers
+    // declaring and initializing an array of 5 integers using array literal format.
     b := [5]int{1,2,3,4,5}
 
     // inferring the length of the integer array.
