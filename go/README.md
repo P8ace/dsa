@@ -27,11 +27,11 @@ Go supports constants of character, string, boolean and numeric values.
 package main
 
 // keyword const declares a constant value
-const VALUE string = "Hello there!"
+const value string = "Hello there!"
 
 func main() {
     // const can also be used inside a function
-    const MY_CONST string = "Another Constant"
+    const myConst string = "Another Constant"
 
     // const expression
     const d = 3e20/5000
@@ -47,17 +47,14 @@ func main() {
 package main
 
 func main() {
-	// variable declaration and intialization. 
-	var myvar string = "some string here"
-
     // type inference
     var a = "initial"
 
     // declaring multiple variables at once
     var b,c = 2, 3
 
-    // variables declared but not initialized will be initialzed to their zero values. 
-    // The zero value for integers is 0, for strings its "", for booleans its false.
+    // variables declared without initialized will be initialzed to their zero values. 
+    // For ints its 0, for strings "", for booleans false
     var d int
 
     // short hand syntax for declaration and initialization.
@@ -95,7 +92,7 @@ Rules for Naming Variables
 - Numeric:
     - uint, uint8, uint16, uint32, uint64
         
-    - uintptr (width is undefined, but can hold all bits of a pointer value)
+    - uintptr (width undefined, can hold all bits of a pointer value)
         
     - int, int8, int16, int32, int64
         
@@ -112,14 +109,13 @@ Rules for Naming Variables
 - bool
 
 ```go
-	// builtin functions for numeric types.
     max(a,b)
     min(a,b)
     
     // built-in functions to work with complex numbers
     var a complex64 = complex(6,9)
     data = real(a)
- 	imaginary = imag(a)
+    imaginary = imag(a)
 ```
 
 * * *
@@ -143,22 +139,22 @@ a % b
 &&, ||, !
 
 // Assignment Operators
-=, +=, -=, *=, /=, %=, 
+// =, +=, -=, *=, /=, %=, 
 
 // Bitwise Operators
-& bitwise and
-| bitwise or
-^ bitwise xor
-<< left shift
->> right shift
-&^ bit clear operator
+// & bitwise and
+// | bitwise or
+// ^ bitwise xor
+// << left shift
+// >> right shift
+// &^ bit clear operator
 
 
 ```
 
 ### Value based Composite data types
 
-Arrays and structs are composed of other data types.
+Arrays and structs combine other data types.
 
 #### Arrays:
 
@@ -169,7 +165,7 @@ An array is a fixed length sequence of homogenous elements in memory. Elements i
     // by default all elements will be initialized to their zero val.
     var a [10]int
 
-    // declaring and initializing an array of 5 integers using array literal format.
+    // declaring and initializing an array of 5 integers
     b := [5]int{1,2,3,4,5}
 
     // inferring the length of the integer array.
@@ -195,87 +191,7 @@ An array is a fixed length sequence of homogenous elements in memory. Elements i
 
 #### Structs
 
-A struct is a user defined type that allows to group/combine elements of different types into a single datatype.
-
-```go
-// defining a struct
-type Address struct {
-    name string
-    street string
-    city string
-    state string
-    pincode int32
-}
-
-// declaring and initializing a struct variable
-address1 := Address{
-    name : "Akshay",
-    street : "Prem Nagar",
-    city : "Gurugram",
-    state : "Haryana",
-    pincode : 1244356
-}
-
-// accessing a field of a struct using the dot(.) operator
-fmt.Println(address1.name)
-fmt.Println(address1.city)
-
-// modifying or setting a field of a struct
-address1.state = "Punjab"
-
-//Nested structs
-type Author struct{
-    name string
-    branch string
-    year 	int16
-}
-
-type HR struct {}
-    details Author 
-}
-
-ourHr = HR{
-    details : Author {
-        name : "SOSO",
-        branch : "Their branch",
-        year	: "9999"
-    }
-}
-
-// or
-detailedAuthor := Author {
-        name : "SOSO",
-        branch : "Their branch",
-        year	: "9999"
-}
-ourHR = HR {
-    details : detailedAuthor
-}
-
-//accessing fields of a nested structure
-result := hr.details.name
-
-//anonymous structs
-var test_case := struct{
-    input int,
-    expected int
-} {
-    input : 20,
-    expected : 400
-}
-
-// struct embedding
-type Student struct {
-    name string
-    class string
-}
-
-type College struct{
-    name string
-    city string
-    Student
-}
-```
+Structs are defined after functions section.
 
 * * *
 
@@ -289,7 +205,7 @@ The zero value of a pointer is nil
     var p *int
 
     // Referencing
-    // Generating a pointer using the refencing(&) operator.
+    // Generating a pointer using the derefencing(&) operator.
     var myString stirng = "Hello"
     var myData *string = &myString
 
@@ -308,9 +224,8 @@ The zero value of a pointer is nil
     // is equivalent to
     var ab *int = new(int)
     fmt.Println(*ab) // will print 0
-	// new function also accepts expressions since Go 1.25
     
-	// accessing fields of a struct passed by reference
+// accessing fields of a struct passed by reference
     msg := *myStruct.myField //do not use this
     msg := myStruct.myField //Correct way to use
     msg := (*myStruct).myField //Equivalent to above
@@ -445,7 +360,7 @@ Maps are associative data types, that associate keys with values.
 
 * * *
 
-## Control Flow
+### Control Flow
 
 ```go
 
@@ -519,7 +434,7 @@ switch {
 
 ```
 
-## Loops
+### Loops
 
 ```Go
     // for INITAL; CONDITION; AFTER {}
@@ -565,11 +480,6 @@ switch {
 
 ## Functions
 
-Functions in Go always receive value based arguments. 
-For example when a slice is passed to a function, its signature is copied. 
-Hence when a slice is extended under the hood by a new backing array a new pointer is created. 
-Hence it is a good practise pass the slice signature back to the caller.
-
 ```Go
     //declaring a function
     func plus(a int, b int) int{
@@ -598,6 +508,89 @@ Hence it is a good practise pass the slice signature back to the caller.
     print(nums...)
 ```
 
+## Structs
+
+A struct is a user defined type that allows to group/combine elements of different types into a single datatype.
+
+```go
+// defining a struct
+type Address struct {
+    name string
+    street string
+    city string
+    state string
+    pincode int32
+}
+
+// declaring and initializing a struct variable
+address1 := Address{
+    name : "Akshay",
+    street : "Prem Nagar",
+    city : "Gurugram",
+    state : "Haryana",
+    pincode : 1244356
+}
+
+// accessing a field of a struct using the dot(.) operator
+fmt.Println(address1.name)
+fmt.Println(address1.city)
+
+// modifying or setting a field of a struct
+address1.state = "Punjab"
+
+//Nested structs
+type Author struct{
+    name string
+    branch string
+    year 	int16
+}
+
+type HR struct {}
+    details Author 
+}
+
+ourHr = HR{
+    details : Author {
+        name : "SOSO",
+        branch : "Their branch",
+        year	: "9999"
+    }
+}
+
+// or
+detailedAuthor := Author {
+        name : "SOSO",
+        branch : "Their branch",
+        year	: "9999"
+}
+ourHR = HR {
+    details : detailedAuthor
+}
+
+//accessing fields of a nested structure
+result := hr.details.name
+
+//anonymous structs
+var test_case := struct{
+    input int,
+    expected int
+} {
+    input : 20,
+    expected : 400
+}
+
+// struct embedding
+type Student struct {
+    name string
+    class string
+}
+
+type College struct{
+    name string
+    city string
+    Student
+}
+```
 
 ## Error Interface:
 
@@ -685,7 +678,7 @@ Like maps and slices, channels are too passed by reference.
 	bufferedCh := make(chan int, 200)
 ```
 
-### Closing channels
+#### Closing channels
 
 Channels can be explicitly closed by a sender.
 
@@ -706,7 +699,7 @@ While a panic on any other goroutine will crash that goroutine.
 Closing is not necessary. Channels will be garbage collected. 
 But closing a channel can be used to indicate to a receiver that there is no more data to receive.
 
-### Range over a channel
+#### Range over a channel
 Similar to slices and maps, channel can be ranged over.
 
 ```Go
@@ -716,7 +709,7 @@ Similar to slices and maps, channel can be ranged over.
 ```
 This will block at each iteration and will only break the loop once the channel is closed.
 
-### Select
+#### Select
 
 ```Go
 
@@ -775,7 +768,7 @@ defered recover() function. If there is no recover function in the stack, the pr
 
 * * *
 
-## Packages
+### Packages
 
 Every GO program is made up of packages.  
 A package named "main" has an entrypoint at main() function and be compiled to an executable.  
@@ -788,7 +781,7 @@ However, a directory of Go code can at most have one package name.
 All .go files in a single directory must have the same package name.  
 If they don't the compile will throw an error.
 
-## Modules
+### Modules
 
 At the top level a GO repository contains one or more modules.  
 Each module comprises of one or more packages.  
@@ -796,7 +789,7 @@ Each package comprises of one or more GO source files.
 
 However, it is common to have one module per repository.
 
-## Generics
+### Generics
 
 ```Go
     func splitslice[T any](s []T)([]T, []T){
