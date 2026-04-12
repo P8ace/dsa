@@ -27,14 +27,14 @@ Go supports constants of character, string, boolean and numeric values.
 package main
 
 // keyword const declares a constant value
-const value string = "Hello there!"
+const VALUE string = "Hello there!"
 
 func main() {
     // const can also be used inside a function
-    const myConst string = "Another Constant"
+    const MYCONST string = "Another Constant"
 
     // const expression
-    const d = 3e20/5000
+    const MYCONST2 = 3e20/5000
 }
 
 ```
@@ -47,13 +47,16 @@ func main() {
 package main
 
 func main() {
+	// variable declaration and initialization
+	var myvar string = "some string here."
+	
     // type inference
     var a = "initial"
 
     // declaring multiple variables at once
     var b,c = 2, 3
 
-    // variables declared without initialized will be initialzed to their zero values. 
+    // variables declared without initialization will be initialzed to their zero values by default. 
     // For ints its 0, for strings "", for booleans false
     var d int
 
@@ -109,6 +112,7 @@ Rules for Naming Variables
 - bool
 
 ```go
+	// built-in functions to work with numeric types.
     max(a,b)
     min(a,b)
     
@@ -123,33 +127,65 @@ Rules for Naming Variables
 ### Operators
 
 ```go
-//Arithmetic Operators
-+, _, *, /, %
+// Arithmetic Operators
+Operator 					applicable data types.
++    sum                    integers, floats, complex values, strings
+-    difference             integers, floats, complex values
+*    product                integers, floats, complex values
+/    quotient               integers, floats, complex values
+%    remainder              integers
 
-a + b
-a - b
-a / b
-a * b
-a % b
- 
-//Relational Operators
-==, !=, >, <, >=, <=
-
-//Logical Operators
-&&, ||, !
-
-// Assignment Operators
-// =, +=, -=, *=, /=, %=, 
+// Unary Operators
+++	// equivalent to a = a + 1
+-- 	// equivalent to a = a - 1
 
 // Bitwise Operators
-// & bitwise and
-// | bitwise or
-// ^ bitwise xor
-// << left shift
-// >> right shift
-// &^ bit clear operator
+&    bitwise AND            integers
+|    bitwise OR             integers
+^    bitwise XOR            integers
+&^   bit clear (AND NOT)    integers
 
+<<   left shift             integer << integer >= 0
+>>   right shift            integer >> integer >= 0
+ 
+//Relational Operators
+==	Equal to
+!=	Not equal to
+>	greater than
+<	less than
+>=	greater than or equal to
+<=	less than or equal to
 
+//Logical Operators
+&& // Logical and operator 
+|| // Logical or operator
+!  // Logical not operator
+
+// Assignment Operators
+=	// assigning value to a variable or constant
++=	// equivalent to a = a+b
+-=	// equivalent to a = a-b
+*= 	// equivalent to a = a*b
+/= 	// equivalent to a = a/b
+%= 	// equivalent to a = a%b
+
+// Address Operators
+&var // referencing operator
+*var // de-referencing operator
+
+```
+
+### Operator Precedence
+
+Unary operators such as ++ and -- have the highest precedence as they form statements not expressions.
+There are five precedence levels for binary operators
+```go
+Precedence    Operator
+    5             *  /  %  <<  >>  &  &^		// Multiplication Operators
+    4             +  -  |  ^					// Addition Operators
+    3             ==  !=  <  <=  >  >=			// Comparison Operators
+    2             &&							// Logical AND
+    1             ||							// Logical OR
 ```
 
 ### Value based Composite data types
@@ -162,7 +198,7 @@ An array is a fixed length sequence of homogenous elements in memory. Elements i
 
 ```Go
     // declaring an array of integers of length 10.
-    // by default all elements will be initialized to their zero val.
+    // By default all elements will be initialized to their zero values.
     var a [10]int
 
     // declaring and initializing an array of 5 integers
@@ -191,7 +227,87 @@ An array is a fixed length sequence of homogenous elements in memory. Elements i
 
 #### Structs
 
-Structs are defined after functions section.
+A struct is a user defined type that allows to group/combine elements of different types into a single datatype.
+
+```go
+// defining a struct
+type Address struct {
+    name string
+    street string
+    city string
+    state string
+    pincode int32
+}
+
+// declaring and initializing a struct variable
+address1 := Address{
+    name : "Akshay",
+    street : "Prem Nagar",
+    city : "Gurugram",
+    state : "Haryana",
+    pincode : 1244356
+}
+
+// accessing a field of a struct using the dot(.) operator
+fmt.Println(address1.name)
+fmt.Println(address1.city)
+
+// modifying or setting a field of a struct
+address1.state = "Punjab"
+
+//Nested structs
+type Author struct{
+    name string
+    branch string
+    year 	int16
+}
+
+type HR struct {}
+    details Author 
+}
+
+ourHr = HR{
+    details : Author {
+        name : "SOSO",
+        branch : "Their branch",
+        year	: "9999"
+    }
+}
+
+// or
+detailedAuthor := Author {
+        name : "SOSO",
+        branch : "Their branch",
+        year	: "9999"
+}
+ourHR = HR {
+    details : detailedAuthor
+}
+
+//accessing fields of a nested structure
+result := hr.details.name
+
+//anonymous structs
+var test_case := struct{
+    input int,
+    expected int
+} {
+    input : 20,
+    expected : 400
+}
+
+// struct embedding
+type Student struct {
+    name string
+    class string
+}
+
+type College struct{
+    name string
+    city string
+    Student
+}
+```
 
 * * *
 
@@ -205,7 +321,7 @@ The zero value of a pointer is nil
     var p *int
 
     // Referencing
-    // Generating a pointer using the derefencing(&) operator.
+    // Generating a pointer using the address(&) operator.
     var myString stirng = "Hello"
     var myData *string = &myString
 
@@ -359,11 +475,42 @@ Maps are associative data types, that associate keys with values.
 - Maps are not thread safe. Use mutexes
 
 * * *
+* 
+## Functions
 
-### Control Flow
+```Go
+    //declaring a function
+    func plus(a int, b int) int{
+        return a + b
+    }
 
+    // consecutive parameters of same type can ignore type name
+    func plus(a, b int) int{
+        return a + b
+    }
+
+    // returning multiple values
+    func vals() (int, int){
+        return 4,5
+    }
+    
+    //variadic functions accept any number of arguments
+    func print(str ...int) {
+        for s := str{
+            fmt.Println(s)
+        }
+    }
+
+    // passing a slice to a variadic function
+    nums := []int{1,2,3,4}
+    print(nums...)
+```
+* * *
+
+## Control Flow
+
+### Branching 
 ```go
-
 // if else
 if a > b {
 	//do something
@@ -377,7 +524,10 @@ if a > b {
 if a := getResult; a == true {
 	// do something
 }
+```
 
+### Switch
+```Go
 // switch
 day := 4
 switch day {
@@ -435,7 +585,6 @@ switch {
 ```
 
 ### Loops
-
 ```Go
     // for INITAL; CONDITION; AFTER {}
     for i:= 0; i <10; i++{
@@ -456,8 +605,10 @@ switch {
         //do semething
         break // stop the current iteration and exit the loop
     }
+````
 
-    #### Range function
+#### Range function
+```Go
     for n := range 6{
         fmt.Print(n) // will print 0,1,2,3,4,5
     }
@@ -477,120 +628,55 @@ switch {
      // iterating over strings
      for _, rune := range mystring {}
 ```
+#### continue and break
+continue statement skips the current iteration of the loop.
+break statement exits the loop.
 
-## Functions
+### defer, panic and recover
 
+The defer statement pushes a function call to end of the current function scope.
+
+The three rules of defer statements.
+
+1. A deferred function’s arguments are evaluated when the defer statement is evaluated.
 ```Go
-    //declaring a function
-    func plus(a int, b int) int{
-        return a + b
-    }
+func a() {
+    i := 0
+    defer fmt.Println(i)
+    i++
+    return
+}
+// This will print 0 as the Println function call is evaluated when defer is called.
+````
 
-    // consecutive parameters of same type can ignore type name
-    func plus(a, b int) int{
-        return a + b
+2. Deferred function calls are executed in Last In First Out order after the surrounding function returns.
+```Go
+func b() {
+    for i := 0; i < 4; i++ {
+        defer fmt.Print(i)
     }
-
-    // returning multiple values
-    func vals() (int, int){
-        return 4,5
-    }
-    
-    //variadic functions accept any number of arguments
-    func print(str ...int) {
-        for s := str{
-            fmt.Println(s)
-        }
-    }
-
-    // passing a slice to a variadic function
-    nums := []int{1,2,3,4}
-    print(nums...)
+}
+// This prints 3 2 1 0
 ```
 
-## Structs
-
-A struct is a user defined type that allows to group/combine elements of different types into a single datatype.
-
-```go
-// defining a struct
-type Address struct {
-    name string
-    street string
-    city string
-    state string
-    pincode int32
+3. Deferred functions may read and assign to the returning function’s named return values.
+```Go
+func c() (i int) {
+    defer func() { i++ }()
+    return 1
 }
-
-// declaring and initializing a struct variable
-address1 := Address{
-    name : "Akshay",
-    street : "Prem Nagar",
-    city : "Gurugram",
-    state : "Haryana",
-    pincode : 1244356
-}
-
-// accessing a field of a struct using the dot(.) operator
-fmt.Println(address1.name)
-fmt.Println(address1.city)
-
-// modifying or setting a field of a struct
-address1.state = "Punjab"
-
-//Nested structs
-type Author struct{
-    name string
-    branch string
-    year 	int16
-}
-
-type HR struct {}
-    details Author 
-}
-
-ourHr = HR{
-    details : Author {
-        name : "SOSO",
-        branch : "Their branch",
-        year	: "9999"
-    }
-}
-
-// or
-detailedAuthor := Author {
-        name : "SOSO",
-        branch : "Their branch",
-        year	: "9999"
-}
-ourHR = HR {
-    details : detailedAuthor
-}
-
-//accessing fields of a nested structure
-result := hr.details.name
-
-//anonymous structs
-var test_case := struct{
-    input int,
-    expected int
-} {
-    input : 20,
-    expected : 400
-}
-
-// struct embedding
-type Student struct {
-    name string
-    class string
-}
-
-type College struct{
-    name string
-    city string
-    Student
-}
+// This prints 2
 ```
+
+panic and recover are built-in functions.
+When a function f calls panic, the execution of f stops and any deferred functions in f are executed normally. 
+This continues up the stack until all the program crashes.  
+panics can also be caused by runtime errors, such as out-of-bounds array accesses.
+
+The panic function removes the control out of the current function and up the stack trace until it reaches a  
+defered recover() function. If there is no recover function in the stack, the program crashes.
+
+* * *
 
 ## Error Interface:
 
@@ -759,16 +845,9 @@ RW Mutex
 	}
 ```
 
-
-## Panic and Recover
-
-When a function calls panic, the program crashes and prints the stack trace.  
-The panic function removes the control out of the current function and up the stack trace until it reaches a  
-defered recover() function. If there is no recover function in the stack, the program crashes.
-
 * * *
 
-### Packages
+## Packages
 
 Every GO program is made up of packages.  
 A package named "main" has an entrypoint at main() function and be compiled to an executable.  
@@ -781,7 +860,7 @@ However, a directory of Go code can at most have one package name.
 All .go files in a single directory must have the same package name.  
 If they don't the compile will throw an error.
 
-### Modules
+## Modules
 
 At the top level a GO repository contains one or more modules.  
 Each module comprises of one or more packages.  
@@ -789,7 +868,7 @@ Each package comprises of one or more GO source files.
 
 However, it is common to have one module per repository.
 
-### Generics
+## Generics
 
 ```Go
     func splitslice[T any](s []T)([]T, []T){
@@ -814,7 +893,7 @@ func Min[T Ordered](a, b T)(T){
     
 ```
 
-### Go Proverbs
+## Go Proverbs
 
 ```
 Don't communicate by sharing memory, share memory by communicating.
