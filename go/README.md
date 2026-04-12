@@ -37,6 +37,23 @@ func main() {
     const MYCONST2 = 3e20/5000
 }
 
+// Multiple constant declaration
+const (
+  A int = 1
+  B = 3.14
+  C = "Hi!"
+)
+
+// iota identifier
+const (
+    Monday = iota
+    Tuesday
+    Wednesday
+    Thursday
+    Friday
+)
+// Monday = 0, Tuesday = 1, Wednesday = 2, Thursday = 3, Friday = 4.
+
 ```
 
 * * *
@@ -113,13 +130,13 @@ Rules for Naming Variables
 
 ```go
 	// built-in functions to work with numeric types.
-    max(a,b)
+    max(a,b)	// the max and min functions accept ints/uints/floats/strings
     min(a,b)
     
     // built-in functions to work with complex numbers
-    var a complex64 = complex(6,9)
-    data = real(a)
-    imaginary = imag(a)
+    var a complex64 = complex(6.1,9.2) 	// complex function accepts float32 or float64 and returns complex64 for float32 and complex128 for float64.
+    data = real(a)						// the real function returns the real part of the complex number. Either float32/float64
+    imaginary = imag(a)					// the imag function returns the imaginary part of the complex number. Either float32/float64
 ```
 
 * * *
@@ -475,7 +492,7 @@ Maps are associative data types, that associate keys with values.
 - Maps are not thread safe. Use mutexes
 
 * * *
-* 
+
 ## Functions
 
 ```Go
@@ -632,7 +649,7 @@ switch {
 continue statement skips the current iteration of the loop.
 break statement exits the loop.
 
-### defer, panic and recover
+### defer
 
 The defer statement pushes a function call to end of the current function scope.
 
@@ -668,6 +685,7 @@ func c() (i int) {
 // This prints 2
 ```
 
+### panic and recover
 panic and recover are built-in functions.
 When a function f calls panic, the execution of f stops and any deferred functions in f are executed normally. 
 This continues up the stack until all the program crashes.  
@@ -675,6 +693,7 @@ panics can also be caused by runtime errors, such as out-of-bounds array accesse
 
 The panic function removes the control out of the current function and up the stack trace until it reaches a  
 defered recover() function. If there is no recover function in the stack, the program crashes.
+Recover is only useful inside deferred functions. During normal execution, a call to recover will return nil and have no other effect. If the current goroutine is panicking, a call to recover will capture the value given to panic and resume normal execution.
 
 * * *
 
